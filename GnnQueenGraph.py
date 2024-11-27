@@ -133,17 +133,14 @@ def generate_queen_graph(size=8):
             node = i * size + j
             G.add_node(node)
             
-            #horizontal 
             for dj in range(size):
                 if dj != j:
                     G.add_edge(node, i * size + dj)
             
-            # vertical (same colonn)
             for di in range(size):
                 if di != i:
                     G.add_edge(node, di * size + j)
             
-            # Déplacements diagonaux
             for di in range(-size + 1, size):
                 for dj in range(-size + 1, size):
                     if abs(di) == abs(dj) and di != 0 and dj != 0:
